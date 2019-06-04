@@ -15,7 +15,7 @@ struct SearchView: View {
         VStack {
             TextField($searchFieldText, placeholder: Text("Search"))
                 .padding()
-            NavigationButton(destination: MoviesView(searchString: searchFieldText)) {
+            NavigationButton(destination: MoviesView(movies: MovieDataBO(search: searchFieldText))) {
                 Text("Search")
             }
                 .padding()

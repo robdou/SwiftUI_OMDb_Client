@@ -9,18 +9,35 @@
 import SwiftUI
 
 struct MoviesView: View {
-    @State var searchString: String
+    @State var movies: MovieDataBO
 
     var body: some View {
-        Text("Movies View")
-            .navigationBarTitle(Text(searchString))
+        List() {
+            ForEach(movies.movies) { movie in
+                MovieCell(movie: movie)
+            }
+        }
+            .navigationBarTitle(Text(movies.searchString))
+    }
+}
+
+struct MovieCell: View {
+    @State var movie: OMDbItem
+
+    var body: some View {
+        VStack {
+            Text(movie.title ?? "")
+                .font(.headline)
+            Text(movie.year ?? "")
+                .font(.subheadline)
+        }
     }
 }
 
 #if DEBUG
 struct MoviesView_Previews: PreviewProvider {
     static var previews: some View {
-        MoviesView(searchString: "")
+        MoviesView(movies: MovieDataBO(search: ""))
     }
 }
 #endif

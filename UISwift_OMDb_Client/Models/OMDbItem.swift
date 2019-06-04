@@ -6,7 +6,30 @@
 //  Copyright © 2019 Robin Douglas. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
+import Combine
+
+final class MovieDataBO: BindableObject {
+    let didChange = PassthroughSubject<MovieDataBO, Never>()
+
+    init(search: String) {
+        searchString = search
+    }
+
+    var searchString: String {
+        didSet {
+            #warning("do search here?")
+        }
+    }
+
+    var movies: [OMDbItem] = [
+        OMDbItem(id: "0", title: "test", year: "test", poster: "test")
+        ] {
+        didSet {
+            didChange.send(self)
+        }
+    }
+}
 
 struct OMDbSearch: Codable {
     let search: [OMDbItem]?
@@ -16,7 +39,7 @@ struct OMDbSearch: Codable {
     }
 }
 
-struct OMDbItem: Codable {
+struct OMDbItem: Codable, Identifiable {
     let id: String
     let title: String?
     let year: String?
