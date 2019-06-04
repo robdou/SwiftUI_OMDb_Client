@@ -58,6 +58,7 @@
 		4B6E2F2E22A6A46B0089E072 /* UISwift_OMDb_Client */ = {
 			isa = PBXGroup;
 			children = (
+				4B9D587722A6A74C007F180E /* Models */,
 				4B9D587222A6A5BC007F180E /* Views */,
 				4B6E2F2F22A6A46B0089E072 /* AppDelegate.swift */,
 				4B6E2F3122A6A46B0089E072 /* SceneDelegate.swift */,
@@ -65,7 +66,6 @@
 				4B6E2F3A22A6A46E0089E072 /* LaunchScreen.storyboard */,
 				4B6E2F3D22A6A46E0089E072 /* Info.plist */,
 				4B6E2F3722A6A46E0089E072 /* Preview Content */,
-				4B9D587522A6A6D1007F180E /* OMDbItem.swift */,
 			);
 			path = UISwift_OMDb_Client;
 			sourceTree = "<group>";
@@ -84,6 +84,14 @@
 				4B9D587322A6A60F007F180E /* RootView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4B9D587722A6A74C007F180E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4B9D587522A6A6D1007F180E /* OMDbItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
