@@ -11,14 +11,14 @@ import SwiftUI
 struct RootView: View {
     var body: some View {
         NavigationView {
-            Text("test")
-                .navigationBarTitle(Text("Test"))
+            SearchView()
+                .navigationBarTitle(Text("Search"))
         }
     }
 }
 
 #if DEBUG
-struct ContentView_Previews : PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         RootView()
     }
