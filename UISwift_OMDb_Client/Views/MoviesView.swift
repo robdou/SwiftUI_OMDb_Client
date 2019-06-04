@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MoviesView.swift
 //  UISwift_OMDb_Client
 //
 //  Created by Robin Douglas on 04/06/2019.
@@ -8,18 +8,19 @@
 
 import SwiftUI
 
-struct RootView: View {
+struct MoviesView: View {
+    @State var searchString: String
+
     var body: some View {
-        NavigationView {
-            SearchView()
-        }
+        Text("Movies View")
+            .navigationBarTitle(Text(searchString))
     }
 }
 
 #if DEBUG
-struct ContentView_Previews: PreviewProvider {
+struct MoviesView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
+        MoviesView(searchString: "")
     }
 }
 #endif

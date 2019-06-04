@@ -15,15 +15,13 @@ struct SearchView: View {
         VStack {
             TextField($searchFieldText, placeholder: Text("Search"))
                 .padding()
-            Button(action: {
-                print(self.searchFieldText)
-            }) {
+            NavigationButton(destination: MoviesView(searchString: searchFieldText)) {
                 Text("Search")
-                    .font(.headline)
             }
                 .padding()
             Spacer()
         }
+            .navigationBarTitle(Text("Search"))
     }
 }
 

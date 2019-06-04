@@ -15,6 +15,7 @@
 		4B9D587422A6A60F007F180E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9D587322A6A60F007F180E /* RootView.swift */; };
 		4B9D587622A6A6D1007F180E /* OMDbItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9D587522A6A6D1007F180E /* OMDbItem.swift */; };
 		4B9D587922A6A811007F180E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9D587822A6A811007F180E /* SearchView.swift */; };
+		4B9D587B22A6B020007F180E /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9D587A22A6B020007F180E /* MoviesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4B9D587322A6A60F007F180E /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		4B9D587522A6A6D1007F180E /* OMDbItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDbItem.swift; sourceTree = "<group>"; };
 		4B9D587822A6A811007F180E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		4B9D587A22A6B020007F180E /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				4B9D587322A6A60F007F180E /* RootView.swift */,
 				4B9D587822A6A811007F180E /* SearchView.swift */,
+				4B9D587A22A6B020007F180E /* MoviesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B9D587922A6A811007F180E /* SearchView.swift in Sources */,
+				4B9D587B22A6B020007F180E /* MoviesView.swift in Sources */,
 				4B6E2F3022A6A46B0089E072 /* AppDelegate.swift in Sources */,
 				4B6E2F3222A6A46B0089E072 /* SceneDelegate.swift in Sources */,
 				4B9D587622A6A6D1007F180E /* OMDbItem.swift in Sources */,
