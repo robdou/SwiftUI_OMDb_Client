@@ -16,8 +16,13 @@ class APIService {
 
     private static let endpoint = "https://www.omdbapi.com/?apikey=4359bcbe&s="
 
-    static func searchOMDb(for search: String, completion: @escaping (Result<OMDbSearch, Error>) -> Void) {
-        URLSession.shared.dataTask(with: URL(string: endpoint + search.replacingOccurrences(of: " ", with: ""))!) { (data, _, error) in
+    static func searchOMDb(
+        for search: String,
+        completion: @escaping (Result<OMDbSearch, Error>) -> Void
+    ) -> URLSessionDataTask {
+        let task = URLSession.shared.dataTask(
+            with: URL(string: endpoint + search.replacingOccurrences(of: " ", with: ""))!
+        ) { (data, _, error) in
             guard let data = data else { completion(.failure(APIError.noData)); return }
             do {
                 let search = try JSONDecoder().decode(OMDbSearch.self, from: data)
@@ -25,7 +30,9 @@ class APIService {
             } catch {
                 completion(.failure(error))
             }
-        }.resume()
+        }
+        task.resume()
+        return task
     }
 
 }

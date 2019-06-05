@@ -15,7 +15,12 @@ final class MovieDataBO: BindableObject {
         performSearch()
     }
 
+    deinit {
+        dataTask?.cancel()
+    }
+
     let didChange = PassthroughSubject<MovieDataBO, Never>()
+    private var dataTask: URLSessionDataTask?
     var searchString: String {
         didSet {
             performSearch()
@@ -29,7 +34,7 @@ final class MovieDataBO: BindableObject {
     }
 
     func performSearch() {
-        APIService.searchOMDb(for: searchString) { [weak self] (result) in
+        dataTask = APIService.searchOMDb(for: searchString) { [weak self] (result) in
             switch result {
             case .failure: break
             case .success(let search):
