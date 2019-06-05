@@ -25,11 +25,19 @@ struct MovieRow: View {
     var movie: OMDbItem
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(movie.title ?? "")
-                .font(.headline)
-            Text(movie.year ?? "")
-                .font(.subheadline)
+        Button(action: {
+            UIApplication.shared.open(
+                URL(string: "https://www.imdb.com/title/\(self.movie.id)")!,
+                options: [:],
+                completionHandler: nil
+            )
+        }) {
+            VStack(alignment: .leading) {
+                Text(movie.title ?? "")
+                    .font(.headline)
+                Text(movie.year ?? "")
+                    .font(.subheadline)
+            }
         }
     }
 }
