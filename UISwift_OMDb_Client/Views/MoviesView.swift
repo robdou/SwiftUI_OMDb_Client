@@ -14,18 +14,18 @@ struct MoviesView: View {
     var body: some View {
         List() {
             ForEach(movies.movies) { movie in
-                MovieCell(movie: movie)
+                MovieRow(movie: movie)
             }
         }
             .navigationBarTitle(Text(movies.searchString))
     }
 }
 
-struct MovieCell: View {
-    @State var movie: OMDbItem
+struct MovieRow: View {
+    var movie: OMDbItem
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(movie.title ?? "")
                 .font(.headline)
             Text(movie.year ?? "")
