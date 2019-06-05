@@ -10,23 +10,31 @@ import SwiftUI
 import Combine
 
 final class MovieDataBO: BindableObject {
-    let didChange = PassthroughSubject<MovieDataBO, Never>()
-
     init(search: String) {
         searchString = search
+        performSearch()
     }
 
+    let didChange = PassthroughSubject<MovieDataBO, Never>()
     var searchString: String {
         didSet {
-            #warning("do search here?")
+            performSearch()
+            didChange.send(self)
+        }
+    }
+    var movies: [OMDbItem] = [] {
+        didSet {
+            didChange.send(self)
         }
     }
 
-    var movies: [OMDbItem] = [
-        OMDbItem(id: "0", title: "test", year: "test", poster: "test")
-        ] {
-        didSet {
-            didChange.send(self)
+    func performSearch() {
+        APIService.searchOMDb(for: searchString) { [weak self] (result) in
+            switch result {
+            case .failure: break
+            case .success(let search):
+                self?.movies = search.search ?? []
+            }
         }
     }
 }

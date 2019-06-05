@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State var searchFieldText: String = ""
+    @State var searchString = ""
 
     var body: some View {
         VStack {
-            TextField($searchFieldText, placeholder: Text("Search"))
+            TextField($searchString, placeholder: Text("Search"))
                 .padding()
-            NavigationButton(destination: MoviesView(movies: MovieDataBO(search: searchFieldText))) {
+            NavigationButton(destination: MoviesView(movies: MovieDataBO(search: searchString))) {
                 Text("Search")
             }
                 .padding()
